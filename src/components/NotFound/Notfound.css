@@ -1,4 +1,13 @@
-/* 
+body {
+    font-family: Arial, sans-serif;
+    background-color:var(--theme);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+  }
   
   .not-found-container {
     text-align: center;
@@ -6,19 +15,19 @@
     padding: 0 20px;
   }
   
-  h1 {
+  .error-code {
     font-size: 6rem;
     margin-bottom: 10px;
     color: #333;
   }
   
-  h2 {
+ .error-msg {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #555;
   }
   
-  p {
+  .error-msg2  {
     font-size: 1rem;
     margin-bottom: 20px;
     color: #777;
@@ -54,4 +63,4 @@
       font-size: 1rem; 
     }
   }
-   */
+  

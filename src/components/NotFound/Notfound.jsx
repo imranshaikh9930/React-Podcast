@@ -6,10 +6,10 @@ const Notfound = () => {
 
     
   return (
-    <div class="not-found-container">
-    <h1>404</h1>
-    <h2>Page Not Found</h2>
-    <p>Oops! The page you are looking for might have been removed or is temporarily unavailable.</p>
+    <div className="not-found-container">
+    <h1 className='error-code'>404</h1>
+    <h2 className='error-msg'>Page Not Found</h2>
+    <p className='error-msg2'>Oops! The page you are looking for might have been removed or is temporarily unavailable.</p>
 
     <NavLink to={"/"}>Go back to Home</NavLink>
   </div>

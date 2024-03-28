@@ -63,7 +63,12 @@ const Profile = () => {
         {/* <img src={displayImage} alt="displayImage" className="display-image-podcast" /> */}
         <h1 className="profile-name">{user.name}</h1>
         <h4 className="profile-emai;">{user.email}</h4>
+       
       </div>
+      {/* <div className="logout-btn"> */}
+
+      <Button className="btn" onClick={handleLogout} text={"Logout"}/>
+      {/* </div> */}
 
       <h1 className='profile-podcast-title'>Your Podcasts</h1>
 
@@ -82,7 +87,7 @@ const Profile = () => {
 
       })
     }
-    <Button onClick={handleLogout} text={"Logout"}/>
+  
     </div>
    
 

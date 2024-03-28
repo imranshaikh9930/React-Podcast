@@ -190,6 +190,15 @@ code {
   font-family: Inter;
 }
 
+/* Logout Btn */
+/* .logout-btn{
+  width: 200px !important;
+}
+.logout-btn .btn{
+  width: 100% !important;
+
+} */
+
 .your-podcast{
   display: flex;
   justify-content: center;
