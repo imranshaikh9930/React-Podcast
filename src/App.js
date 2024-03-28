@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
 import SignUp from "./pages/SignedUp";
 import Podcast from "./pages/podcast";
 import StartPodcast from "./pages/startPodcast";
 import Profile from "./pages/profile";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import { onAuthStateChanged } from "firebase/auth";
@@ -16,8 +15,9 @@ import { db, auth } from "./firebase";
 import PrivateRoutes from "./common/PrivateRoutes";
 import PodcastDetails from "./pages/podcastDetails";
 import CreateAnEpisode from "./pages/CreateAnEpisode";
-
+import useOnlineStatus from "../src/feature/onlineStatus";
 function App() {
+  const isOnline = useOnlineStatus();
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
@@ -50,7 +50,27 @@ function App() {
     return () => {
       unsubscribeAuth();
     };
+
+
+   
+    
   }, []);
+
+  useEffect(()=>{
+
+    if(isOnline){
+      toast.success("Online")
+    }else{
+      toast.error("Offline");
+    }
+  },[isOnline])
+
+  
+  
+  
+  
+
+
   return (
     <div className="app">
       <ToastContainer />

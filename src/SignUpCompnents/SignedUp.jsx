@@ -71,7 +71,7 @@ const SignedUp = () => {
       
     }
     return (
-    <div>
+    <div classname="signedUp-page">
           <Input
           state={fullName}
           setState={setFullName}

@@ -4,6 +4,7 @@ import "./Header.css";
 const Header = () => {
   const location = useLocation();
 
+
   return (
     <div className="navbar">
       <div className="gradient"></div>
@@ -32,6 +33,8 @@ const Header = () => {
         >
           Profile
         </NavLink>
+
+
       </div>
     </div>
   );

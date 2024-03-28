@@ -128,3 +128,58 @@ code {
   text-align: left;
   width: 100%;
 }
+
+/* Profile */
+
+.profile{
+  
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.profile-card {
+  width: 250px;
+  min-height: 250px;
+  background: linear-gradient(
+    177.7deg,
+    rgba(58, 129, 191, 0.3) 1.63%,
+    rgba(65, 48, 90, 0.009) 148.18%
+  );
+  border-radius: 1rem;
+  padding: 0.5rem;
+  opacity: 0.7;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  flex-direction: column;
+
+}
+
+
+.podcast-card:hover {
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.profile-name {
+  color: var(--white) !important;
+  text-decoration: none !important;
+  margin: 0.5rem 0rem;
+}
+
+.profile-podcast-title{
+  text-align: center;
+  font-family: Inter;
+}
+
+.your-podcast{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
