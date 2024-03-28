@@ -11,8 +11,8 @@ body {
   
   .not-found-container {
     text-align: center;
-    max-width: 600px; /* Limit width for smaller screens */
-    padding: 0 20px; /* Add padding for smaller screens */
+    max-width: 600px;
+    padding: 0 20px;
   }
   
   h1 {
@@ -43,24 +43,24 @@ body {
     text-decoration: underline;
   }
   
-  /* Responsive styles */
+ 
   @media screen and (max-width: 768px) {
     h1 {
-      font-size: 4rem; /* Decrease font size for smaller screens */
+      font-size: 4rem; 
     }
     
     h2 {
-      font-size: 1.5rem; /* Decrease font size for smaller screens */
+      font-size: 1.5rem; 
       margin-bottom: 15px;
     }
     
     p {
-      font-size: 0.9rem; /* Decrease font size for smaller screens */
+      font-size: 0.9rem; 
       margin-bottom: 15px;
     }
     
     a {
-      font-size: 1rem; /* Decrease font size for smaller screens */
+      font-size: 1rem; 
     }
   }
   
