@@ -133,8 +133,8 @@ code {
 
 .profile{
   
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   flex-direction: column;
   overflow-x: hidden;
 }
@@ -156,6 +156,7 @@ code {
   align-items: center;
   margin: auto;
   flex-direction: column;
+  margin-top: 1rem;
 
 }
 
@@ -182,4 +183,5 @@ code {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  padding: 1.5rem 0rem;
 }
