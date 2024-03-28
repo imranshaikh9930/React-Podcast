@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../components/Header/Header";
 import SignedUp from "../SignUpCompnents/SignedUp";
-import Login from "../LoginComponents/Login";
+import Login from "../components/LoginComponents/Login";
 // import Forgot from "../components/ForgotComponent/Forgot";
 import { NavLink } from "react-router-dom";
 const SignUp = () => {

@@ -82,6 +82,7 @@ const Profile = () => {
 
       })
     }
+    <Button onClick={handleLogout} text={"Logout"}/>
     </div>
    
 

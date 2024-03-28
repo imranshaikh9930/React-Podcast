@@ -80,14 +80,16 @@ function App() {
         {/* <Header/> */}
         <Routes>
           <Route path="/" element={<SignedIn />} />
+          
           <Route element={<PrivateRoutes />}>
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/start-a-podcast" element={<StartPodcast />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/podcast/:id" element={<PodcastDetails/>}/>
             <Route path="/podcast/:id/create-episode" element={<CreateAnEpisode/>}/>
-            <Route path="/forgot" element={<Forgot/>}/>
+         
           </Route>
+          <Route path="/forgot" element={<Forgot/>}/>
           <Route path="/*" element={<Notfound/>}/>
         </Routes>
       </Router>

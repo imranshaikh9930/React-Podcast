@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Input from "../common/Input/Input";
-import Button from "../common/Button/Button";
+import Input from "../../common/Input/Input";
+import Button from "../../common/Button/Button";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import{auth,db} from '../firebase';
+import{auth,db} from '../../firebase';
 import { doc, getDoc } from "firebase/firestore";
 import {useDispatch} from "react-redux";
-import { setUser } from '../slices/userSlice';
+import { setUser } from '../../slices/userSlice';
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
