@@ -1,6 +1,18 @@
-
-.not-found-container {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .not-found-container {
     text-align: center;
+    max-width: 600px; /* Limit width for smaller screens */
+    padding: 0 20px; /* Add padding for smaller screens */
   }
   
   h1 {
@@ -30,3 +42,25 @@
   a:hover {
     text-decoration: underline;
   }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: 4rem; /* Decrease font size for smaller screens */
+    }
+    
+    h2 {
+      font-size: 1.5rem; /* Decrease font size for smaller screens */
+      margin-bottom: 15px;
+    }
+    
+    p {
+      font-size: 0.9rem; /* Decrease font size for smaller screens */
+      margin-bottom: 15px;
+    }
+    
+    a {
+      font-size: 1rem; /* Decrease font size for smaller screens */
+    }
+  }
+  
