@@ -58,6 +58,7 @@ const PodCasts = () => {
                 id={item.id}
                 title={item.title}
                 displayImage={item.displayImage}
+                createdBy= {item.createdBy}
               />
             );
           })}

@@ -54,7 +54,7 @@ const CreatePodcast = () => {
 
         const docRef = await addDoc(collection(db, "podcasts"), podcastData);
 
-        
+          
        
         setLoading(false);
         setTitle("");

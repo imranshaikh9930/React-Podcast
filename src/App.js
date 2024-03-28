@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignUp from "./pages/SignedUp";
+import SignedIn from "./pages/SignedIn";
 import Podcast from "./pages/podcast";
+import Forgot from "../src/components/ForgotComponent/Forgot";
 import StartPodcast from "./pages/startPodcast";
 import Profile from "./pages/profile";
+import Notfound from "./components/NotFound/Notfound";
 import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
@@ -77,14 +79,16 @@ function App() {
       <Router>
         {/* <Header/> */}
         <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<SignedIn />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/start-a-podcast" element={<StartPodcast />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/podcast/:id" element={<PodcastDetails/>}/>
             <Route path="/podcast/:id/create-episode" element={<CreateAnEpisode/>}/>
+            <Route path="/forgot" element={<Forgot/>}/>
           </Route>
+          <Route path="/*" element={<Notfound/>}/>
         </Routes>
       </Router>
     </div>

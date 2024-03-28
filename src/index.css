@@ -51,6 +51,19 @@ code {
   cursor: pointer;
   color: var(--purple-grey);
 }
+
+.signup-forgot-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+.signup-forgot-btn a:hover{
+  cursor: pointer;
+  color: var(--purple-grey) !important;
+  text-decoration: underline !important ;
+}
 .custom-input {
   background-color: var(--theme);
   color: var(--white);
@@ -134,7 +147,7 @@ code {
 .profile{
   
   width: 100%;
-  height: auto;
+  /* height: auto; */
   flex-direction: column;
   overflow-x: hidden;
 }

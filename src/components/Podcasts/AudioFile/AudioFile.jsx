@@ -47,11 +47,17 @@ function AudioPlayer({ audioSrc, image }) {
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("ended", handleEnded);
+    audio.addEventListener('ended', () => {
+      setIsPlaying(true);
+    });
 
     return () => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener('ended', () => {
+        setIsPlaying(false);
+      });
     };
   }, []);
 

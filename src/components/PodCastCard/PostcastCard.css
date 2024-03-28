@@ -29,3 +29,13 @@
     text-decoration: none !important;
     margin: 0.5rem 0rem;
   }
+  .createdBy-podcast{
+    font-size: .6rem;
+    color: var(--white) !important;
+    text-decoration: none !important;
+  }
+  .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
