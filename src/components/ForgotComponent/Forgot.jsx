@@ -34,7 +34,7 @@ const ForgotPassword = () => {
     <>
    <Header/>
     <div className="forgot-container">
-      <h2>Forgot Password</h2>
+      <h2 style={{color:"var(--white)"}}>Forgot Password</h2>
       <form onSubmit={handleResetPassword}>
         <Input
           state={email}
