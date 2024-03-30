@@ -75,7 +75,9 @@ function App() {
 
   return (
     <div className="app">
-      <ToastContainer />
+      <ToastContainer 
+        position="bottom-right"
+      />
       <Router>
         {/* <Header/> */}
         <Routes>
