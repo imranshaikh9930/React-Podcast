@@ -1,22 +1,23 @@
-import React,{useEffect} from 'react'
-import Header from '../components/Header/Header';
-import {useSelector,useDispatch} from "react-redux";
-import Button from '../common/Button/Button';
-import { signOut } from 'firebase/auth';
-import { auth,db } from '../firebase';
-import {toast } from 'react-toastify';
-import PodcastCard from '../components/PodCastCard/PodcastCard';
-import { onSnapshot,query,collection } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { db } from '../firebase';
+import { onSnapshot, query, collection } from 'firebase/firestore';
 import { setPodcasts } from '../slices/podcasts';
+import Header from '../components/Header/Header';
+import PodcastCard from '../components/PodCastCard/PodcastCard';
+import defaultProfileImage from '../Assets/images.jpeg'; 
+import { setUser } from '../slices/userSlice';
+
 const Profile = () => {
-  const user = useSelector((state)=>state.user.user);
+  const user = useSelector((state) => state.user.user);
   const podcasts = useSelector((state) => state.podcasts.podcasts);
+  const [relatedPodcasts, setRelatedPodcasts] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
   const dispatch = useDispatch();
-  console.log(podcasts);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(db, "podcasts")),
+      query(collection(db, 'podcasts')),
       (querySnapshot) => {
         const podcastsData = [];
         querySnapshot.forEach((doc) => {
@@ -25,7 +26,7 @@ const Profile = () => {
         dispatch(setPodcasts(podcastsData));
       },
       (error) => {
-        console.error("Error fetching podcasts:", error);
+        console.error('Error fetching podcasts:', error);
       }
     );
 
@@ -33,67 +34,74 @@ const Profile = () => {
       unsubscribe();
     };
   }, [dispatch]);
-  const handleLogout = ()=>{
 
-    signOut((auth)).then(()=>{
-      toast.success("User Logged Out !");
-    }).catch((err)=>{
+  useEffect(() => {
+    const unsubscribeUsers = onSnapshot(
+      query(collection(db, 'users')),
+      (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const userDataItem = { id: doc.id, ...doc.data() };
+          if (user && doc.id === user.uid) {
+            setCurrentUser(userDataItem);
+            dispatch(setUser(userDataItem)); // Update user in Redux store
+          }
+        });
+      },
+      (error) => {
+        console.error('Error fetching users:', error);
+      }
+    );
 
-      console.log(err)
-    })
-  }
+    return () => {
+      unsubscribeUsers();
+    };
+  }, [dispatch, user]);
 
-  if(!user){
-    return <p>Loading....</p>
-  }
-
-
+  useEffect(() => {
+    if (user && podcasts.length > 0) {
+      const userRelatedPodcasts = podcasts.filter((podcast) => podcast.createdBy === user.uid);
+      setRelatedPodcasts(userRelatedPodcasts);
+    }
+  }, [podcasts, user]);
 
   return (
     <div className='profile'>
-      <Header/>
-{/* 
-      <h1>{user.name}</h1>
-      <h1>{user.email}</h1>
-      <h1>{user.uid}</h1>
-    <Button text="Logout" onClick={handleLogout}/> */}
+      <Header />
 
-
-    <div className="profile-card">
-        {/* <img src={displayImage} alt="displayImage" className="display-image-podcast" /> */}
-        <h1 className="profile-name">{user.name}</h1>
-        <h4 className="profile-emai;">{user.email}</h4>
-       
+      <div className='profile-card'>
+        {/* Render profile image or default profile image */}
+        <img
+          src={currentUser ? currentUser.profilePic || defaultProfileImage : defaultProfileImage}
+          alt='displayImage'
+          className='display-image-podcast'
+        />
+        {/* Render user's name */}
+        {/* Uncomment below line if you have user's name */}
+        <h2 className='profile-name'>{currentUser ? currentUser.name : ''}</h2>
       </div>
-      {/* <div className="logout-btn"> */}
 
-      <Button className="btn" onClick={handleLogout} text={"Logout"}/>
-      {/* </div> */}
+      <h3 className='profile-podcast-title'>Your Podcasts</h3>
 
-      <h1 className='profile-podcast-title'>Your Podcasts</h1>
-
-    <div className='your-podcast'>
-    {
-      podcasts.map((item)=>{
-
-        return (
-          <PodcastCard
+      <div className='your-podcast'>
+        {/* Render podcast cards */}
+        {relatedPodcasts.length ? (
+          <>
+            {relatedPodcasts.map((item) => (
+              <PodcastCard
                 key={item.id}
                 id={item.id}
                 title={item.title}
                 displayImage={item.displayImage}
+                createdBy={item.createdBy}
               />
-        )
-
-      })
-    }
-  
+            ))}
+          </>
+        ) : (
+          <p className='profile-podcast-title'>No Podcasts Found</p>
+        )}
+      </div>
     </div>
-   
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default Profile
+export default Profile;

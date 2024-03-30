@@ -11,7 +11,7 @@ const PodcastCard = ({id,title,displayImage,createdBy}) => {
         <div className='info'>
         <div>
         <p className="title-podcast">{title}</p>
-        <p className='createdBy-podcast'>CreatedBy: {createdBy} </p>
+        {/* <p className='createdBy-podcast'>CreatedBy: {createdBy} </p> */}
 
         </div>
         <FaCirclePlay style={{color:"var(--white)",padding:"1rem"}} />

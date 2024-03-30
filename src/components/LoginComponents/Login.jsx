@@ -53,7 +53,7 @@ const Login = ({}) => {
     catch(e){
 
       console.log("error" , e);
-      toast.eror(e.message);
+      toast.error("Email or Password incorrect");
       setLoading(false);
     }
   }else{

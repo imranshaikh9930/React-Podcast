@@ -32,7 +32,7 @@
   .createdBy-podcast{
     font-size: .6rem;
     color: var(--white) !important;
-    text-decoration: none !important;
+    text-decoration: none;
   }
   .info{
     display: flex;

@@ -62,7 +62,7 @@ code {
 .signup-forgot-btn a:hover{
   cursor: pointer;
   color: var(--purple-grey) !important;
-  text-decoration: underline !important ;
+  text-decoration: none !important ;
 }
 .custom-input {
   background-color: var(--theme);
@@ -142,6 +142,19 @@ code {
   width: 100%;
 }
 
+/* Image upload  */
+.upload__container{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 50vw;
+}
+.no__upload{
+  width: 70vw;
+}
+.banner-image-input{
+  width: auto ;
+}
 /* Profile */
 
 .profile{
@@ -183,21 +196,25 @@ code {
   color: var(--white) !important;
   text-decoration: none !important;
   margin: 0.5rem 0rem;
+  font-size: 1.3rem;
+}
+
+.profile-email{
+  font-size: 1rem;
 }
 
 .profile-podcast-title{
   text-align: center;
-  font-family: Inter;
+  font-family: "Inter";
 }
 
-/* Logout Btn */
-/* .logout-btn{
-  width: 200px !important;
+.profile__header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.logout-btn .btn{
-  width: 100% !important;
 
-} */
+
 
 .your-podcast{
   display: flex;

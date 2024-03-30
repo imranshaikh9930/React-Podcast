@@ -12,14 +12,15 @@
 }
 
 .all-links  a{
-    text-decoration: none;
-    color:var(--grey) !important;
+    /* text-decoration: none !important; */
+    color: #8ea6bb;
     font-weight: 500;
 }
 .all-links a:hover{
     color:var(--white) !important;
     transition: all .3s;
     cursor: pointer;
+    text-decoration: none !important;
 } 
 .gradient{
     position: absolute;
@@ -32,6 +33,42 @@
     z-index: -1;
 }
 .active{
-    color:red ;
+    color: var(---white) !important ;
 }
+
+/* Logout Btn */
+.logout-btn{
+
+    display: flex;
+    justify-content: flex-end;
+  
+  }
+  .logout-btn .btn{
+    width: 100px !important;
+    text-align: center;
+    border: 2px solid var(--white);
+    padding: .5rem 1.4rem;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    background: transparent;
+    color: var(--white);
+  
+  }
+  .logout-btn .btn:hover{
+    background-color: var(--white);
+    color: var(--theme);
+    transition: all 0.2s;
+  }
+
+
+
+
+
+
+
+
+
+
 

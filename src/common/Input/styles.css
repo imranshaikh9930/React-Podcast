@@ -28,5 +28,22 @@
     border-color: var(--white);
   }
 
+  /* Image upload  */
  
+.upload__container {
+  display: flex;
+  align-items: center;
+  width: 70vw;
+}
+
+.image_upload,
+.upload__container {
+  width: 70vw !important; /* Set initial width */
+}
+
+.input-width-full {
+  width: 50vw !important; /* Set width to 100% when file is selected */
+}
+  
+
   

@@ -18,7 +18,10 @@ const SignUp = () => {
             <p onClick={()=>setFlag(!flag)}>Already Have An Account? Login.</p>
           ) : (
             <div className="signup-forgot-btn">
-              <NavLink to={"/forgot"} style={{textDecoration:"none",color:"white",textAlign:'center'}}>Forgot Password</NavLink>
+            
+              <NavLink to={"/forgot"} className="forget_a_tag" style={{color:"white",textAlign:'center',fontSize:"14px"}}>Forgot Password</NavLink>
+            
+             
               <p onClick={()=>setFlag(!flag)}>Don't have an account Click here to .Signup</p>
             </div>
             
